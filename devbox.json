@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.18.4/.schema/devbox.schema.json",
+  "packages": [
+    "python@3.13",
+    "python313Packages.pytest@latest",
+    "ruff@latest"
+  ],
+  "shell": {
+    "scripts": {
+      "setup": "sh setup.sh",
+      "test": "pytest -q",
+      "lint": "ruff check && ruff format --check"
+    }
+  }
+}

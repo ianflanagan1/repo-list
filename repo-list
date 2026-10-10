@@ -1,0 +1,11 @@
+#!/bin/sh
+# Run repo_list.py with the Python that devbox pins for this repository, from any directory.
+# Link or alias this file, e.g. alias rl='~/projects/repo-list/repo-list ~/projects'.
+
+here=$(dirname "$(realpath "$0")")
+python=$here/.venv/bin/python
+if [ ! -x "$python" ]; then
+    echo "repo-list is not set up yet. Run: cd $here && devbox run setup" >&2
+    exit 2
+fi
+exec "$python" "$here/repo_list.py" "$@"
